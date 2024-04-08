@@ -19,7 +19,6 @@ app.all('*',(req,res)=>{
 })
 
 app.listen(process.env.PORT || 5000 , async()=>{
-    await connectToDatabase(process.env.DATABASE_URL);
-    console.log(`running on http://localhost:${process.env.PORT}`)    
-
+        await connectToDatabase(process.env.DATABASE_URL);
+        console.log(`running on http://localhost:${process.env.PORT}`)
 })

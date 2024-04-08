@@ -12,7 +12,8 @@ export const registerUser = async (req, res) => {
       .status(200)
       .send({ status: true, message: "User created successfully" });
   } catch (error) {
-    console.log("error in registerUser", error);
+    console.error("Error in registerUser:", error);
+    res.status(500).send({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -39,7 +40,8 @@ export const loginUser = async (req, res) => {
     
     res.status(200).send({ status: true, message: "Successfully login","token":jwtToken });
   } catch (error) {
-    console.log("Error in login ::", error);
+    console.error("Error in loginUser:", error);
+    res.status(500).send({ success: false, message: "Internal Server Error" });
   }
   //jwt token genarate
 };
